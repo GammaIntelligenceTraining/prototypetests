@@ -34,15 +34,8 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
+        './test/resources/features/ItemSearch.feature',
 
-        //'./test/resources/features/**/*.feature',  
-        //'./test/resources/features/Admin/*.feature',   
-        //'./test/resources/features/CatalogPage.feature', 
-        //'./test/resources/features/AddToCart.feature',
-        './test/resources/features/EmailValidation.feature',
-        //'./test/resources/features/EmailAlreadyUsedOnCheckout.feature',
-        //'./test/resources/features/CompanyContact.feature',
-        //'./test/resources/features/Login.feature',
     ],
     // Patterns to exclude.
     exclude: [
@@ -141,8 +134,8 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-	baseUrl: 'https://infodekoor-uat.gammatest.net/',
-    //baseUrl: 'http://mdm.7p-group.com/mdm5qatest/',    
+	baseUrl: 'https://opencart.gammatest.net/',
+       
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 30000,

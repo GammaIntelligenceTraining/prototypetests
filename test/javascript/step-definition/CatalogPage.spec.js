@@ -9,26 +9,26 @@ Given(/^User is on Home page$/,()=>{
     homeobject.verifyCurrentPage();
 });
 
-When(/^User clicks Catalog link$/,()=>{
-    homeobject.navigateToCatalogPage();
+When(/^User clicks search item field$/,()=>{
+    catalogobject.clickSearchItemField();
 });
 
-When(/^User clicks on Item link$/,()=>{
-    catalogobject.clickFirstItem();
+When(/^User types iPhone$/,()=>{
+    catalogobject.typeSearchFieldIphone();
 });
 
-When(/^User clicks on Add to cart item button$/,()=>{
-    catalogobject.clickAddToCartButton();
+When(/^User clicks search button$/,()=>{
+    catalogobject.clickSearchButton();
 });
+
+Then(/^item is shown in search results$/,()=>{
+    catalogobject.verifySearchResult();
+});
+
 
 Then(/^User moves to Catalog page$/,()=>{
     catalogobject.verifyCatalogPage();
 })
-Then(/^item should be added to the cart$/, ()=>{
-    catalogobject.clickOpenCartTotal();  
-})
 
-When(/^user credentials should be entered$/,()=>{
-    checkoutobject.loginAsRegisteredUser();
-});
+
 

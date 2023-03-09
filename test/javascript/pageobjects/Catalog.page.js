@@ -6,11 +6,11 @@ const utilObj = require( '../helper/WaitActions')
 class CatalogPage extends Page {
 
     //get CatalogLink() { return $('#hp > div.main > div.header.box > div.slogan > ul > li:nth-child(3) > a""]'); }
-    get cart() { return $('#cart')};
-    get firstItem() { return $('#content > table > tbody > tr:nth-child(4) > td:nth-child(1) > a > b')};
+
     get addToCartButton() { return $('#content > div.product-list > div > div.right > div > input')};
-    get cartWithItem() { return $('#cart-total')};
-    get checkoutLink() { return $('#cart > div.content > div.checkout > a:nth-child(2)')};
+    get searchItemField() {return $('#search > input')};
+    get searchButton() {return $('#search > span > button > i')};
+    get firstSearchResultItem() {return $('#content > div:nth-child(8) > div:nth-child(1) > div')};
     
     /**
      * Method to click first item
@@ -27,6 +27,36 @@ class CatalogPage extends Page {
         browser.pause(1000);
         this.checkoutLink.click();
         browser.pause(5000);
+    }
+
+    clickSearchItemField() {
+        utilObj.waitForDefaultTimeOut();
+        this.searchItemField.click();
+    }
+
+    typeSearchFieldIphone() {
+        utilObj.waitForDefaultTimeOut();
+        this.searchItemField.clearValue();
+        this.searchItemField.setValue('iPhone');
+        browser.pause(3000);
+    }
+
+    clickSearchButton() {
+        utilObj.waitForDefaultTimeOut();
+        this.searchButton.click();
+    }
+
+    verifySearchResult() {
+        if (this.firstSearchResultItem.isDisplayed()) {
+            allure.createStep('User is on catalog');
+        }
+        else {
+           // super.dashboardLink.scroll();
+           throw "Search result Thumbis not displayed"
+           //super.dashboardLink.click();
+           //allure.addDescription("open the server instance");
+        }
+
     }
 
   /*  verifyCheckoutLinkVisible() {
